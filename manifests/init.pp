@@ -1,6 +1,6 @@
 # == Class: wget
 #
-# Full description of class wget here.
+# This class installs and configures wget
 #
 # === Parameters
 #
@@ -35,13 +35,12 @@
 #
 # Copyright 2011 Your name here, unless otherwise noted.
 #
-class wget {
+class wget(
+    $http_proxy = undef,
+    $https_proxy = undef,
+) {
     include wget::params
     include wget::package 
+    include wget::config
 }
 
-class wget::package {
-    package { 'wget':
-        ensure  => present,
-    }
-}
